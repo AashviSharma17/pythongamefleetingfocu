@@ -1,0 +1,29 @@
+import random
+import time
+import os
+
+def FleetingFocus():
+    print("Welcome to the Memory Challenge!")
+    print("A sequence of numbers will be displayed briefly. Memorize them!")
+
+    # Generate a random sequence
+    sequence = [random.randint(1, 9) for _ in range(5)]
+    print(f"Sequence: {sequence}")
+
+    # Wait for 5 seconds before clearing the screen
+    time.sleep(5)
+
+    # Clear the screen (works for most systems)
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    # Prompt the user to recall the sequence
+    user_input = input("Enter the sequence you just saw (separate numbers with spaces): ")
+    user_sequence = list(map(int, user_input.split()))
+
+    # Check if the user's input matches the sequence
+    if user_sequence == sequence:
+        print("Correct! You have a great memory!")
+    else:
+        print(f"Oops! The correct sequence was {sequence}. Better luck next time.")
+
+FleetingFocus()
